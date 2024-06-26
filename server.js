@@ -8,16 +8,16 @@ dotenv.config();
 
 const app = express();
 
-// Connect to database
 connectDB();
 
-// Middleware
 app.use(express.json());
 
-// Routes
+app.get("/", (req, res) => {
+  res.send("Worko.AI API is running!");
+});
+
 app.use("/api", userRoutes);
 
-// Error handler
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
